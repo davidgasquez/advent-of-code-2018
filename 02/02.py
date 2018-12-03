@@ -19,17 +19,13 @@ def part_1(input):
 
 
 def part_2(input):
-    for idx1 in range(len(input)):
-        for idx2 in range(idx1, len(input)):
-            id1, id2 = input[idx1].strip(), input[idx2].strip()
-            dif = 0
-            for idxc in range(len(id1)):
-                if id1[idxc] != id2[idxc]:
-                    dif += 1
-            if dif == 1:
-                print(id1)
-                print(id2)
-                return ""
+    hasher = set()
+    for line in input:
+        for i, _ in enumerate(line):
+            key = (line[:i], line[i + 1 :])
+            if key in hasher:
+                return key[0] + key[1]
+            hasher.add(key)
 
 
 print(part_1(input))
