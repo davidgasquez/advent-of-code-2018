@@ -1,24 +1,4 @@
 import collections
-import re
-
-
-def get_digits(line):
-    return (int(match[0]) for match in re.finditer(r"\d+", line))
-
-
-def part2(file):
-    min_x = min(x for x, y in coords) - 1
-    max_x = max(x for x, y in coords) + 1
-    min_y = min(y for x, y in coords) - 1
-    max_y = max(y for x, y in coords) + 1
-    c = 0
-    for x in range(min_x, max_x + 1):
-        for y in range(min_y, max_y + 1):
-            s = sum(abs(x - cx) + abs(y - cy) for cx, cy in coords)
-            if s <= 10000:
-                c += 1
-    return c
-
 
 with open("input.txt") as f:
     lines = f.readlines()
@@ -32,7 +12,6 @@ max_y = max(y for x, y in coords) + 1
 
 closest_points = {}
 
-# Create the map of closest coordinates to each spot
 for x in range(min_x, max_x + 1):
     for y in range(min_y, max_y + 1):
         closest = None
