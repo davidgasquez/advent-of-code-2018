@@ -44,7 +44,7 @@ size = 0
 for x in range(min_x, max_x + 1):
     for y in range(min_y, max_y + 1):
         s = sum(abs(x - coord_x) + abs(y - coord_y) for coord_x, coord_y in coords)
-        if s <= 10000:
+        if s < 10000:
             size += 1
 
 print(size)
